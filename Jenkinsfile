@@ -1,4 +1,5 @@
-
+bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" build -t devops-demo:latest .'
+bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" run -d -p 8080:8080 --name devops-demo-container devops-demo:latest'
 pipeline {
     agent any
 
