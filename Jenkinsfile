@@ -1,5 +1,4 @@
-bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" build -t devops-demo:latest .'
-bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" run -d -p 8080:8080 --name devops-demo-container devops-demo:latest'
+
 pipeline {
     agent any
 
@@ -25,14 +24,14 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t devops-demo:latest .'
+                bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" build -t devops-demo:latest .'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'docker rm -f devops-demo-container 2>NUL & exit /b 0'
-                bat 'docker run -d -p 8080:8080 --name devops-demo-container devops-demo:latest'
+                bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" rm -f devops-demo-container 2>NUL & exit /b 0'
+                bat '"C:/Users/Athira Sajeevan/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" run -d -p 8080:8080 --name devops-demo-container devops-demo:latest'
             }
         }
     }
